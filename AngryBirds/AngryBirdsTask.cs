@@ -12,7 +12,10 @@ namespace AngryBirds
 		/// <returns>Угол прицеливания в радианах от 0 до Pi/2</returns>
 		public static double FindSightAngle(double v, double distance)
 		{
-			return Math.PI / 4;
+            const double g = 9.8;
+            var alpha = 0.0;
+            alpha = Math.Asin((distance * g) / Math.Pow(v, 2)) / 2;
+            return alpha;
 		}
 	}
 }
