@@ -25,6 +25,13 @@ namespace Rectangles
 		// Площадь пересечения прямоугольников
 		public static int IntersectionSquare(Rectangle r1, Rectangle r2)
 		{
+            if (AreIntersected(r1, r2))
+            {
+                var height = Math.Min(r1.Bottom, r2.Bottom) - Math.Max(r1.Top, r2.Top);
+                var width = Math.Min(r1.Right, r2.Right) - Math.Max(r1.Left, r2.Left);
+                var square = height * width;
+                return square;
+            }
             return 0;
 		}
 
@@ -32,7 +39,21 @@ namespace Rectangles
 		// Иначе вернуть -1
 		public static int IndexOfInnerRectangle(Rectangle r1, Rectangle r2)
 		{
-			return -1;
+            if (AreIntersected(r1, r2))
+            {
+                var squareR1 = r1.Height * r1.Width;
+                var squareR2 = r2.Height * r2.Width;
+                var fullIntersectionSquare = IntersectionSquare(r1, r2);
+                if (squareR1 == fullIntersectionSquare)
+                {
+                    return 0;
+                }
+                else if (squareR2 == fullIntersectionSquare)
+                {
+                    return 1;
+                }
+            }
+            return -1;
 		}
 	}
 }
