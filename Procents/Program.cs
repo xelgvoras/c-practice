@@ -16,14 +16,14 @@ namespace Procents
             Console.WriteLine(accumulation);
         }
 
-        static private double Calculate(string input)
+        static private double Calculate(string userInput)
         {
             char delimiter = ' ';
-            string[] substrings = input.Split(delimiter);
+            string[] substrings = userInput.Split(delimiter);
             var sum = double.Parse(substrings[0]);
             var interestRate = double.Parse(substrings[1]) / 100;
             var termOfDeposite = double.Parse(substrings[2]);
-            for (int i = 0; i < (12 * termOfDeposite); i++)
+            for (int i = 0; i < termOfDeposite; i++)
             {
                 sum += (sum * interestRate) / 12;
             }
