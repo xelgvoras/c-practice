@@ -49,6 +49,7 @@ namespace Rectangles
 						yield return new RectanglesTestRoomTestCase(new Rectangle(0, 0, 20, 20), new Rectangle(20 * x, 20 * y, 20, 20), true, 0, -1);
 						yield return new RectanglesTestRoomTestCase(new Rectangle(20 * x, 20 * y, 20, 20), new Rectangle(0, 0, 20, 20), true, 0, -1);
 					}
+            yield return new RectanglesTestRoomTestCase(new Rectangle(20, 2, 40, 4), new Rectangle(10, 2, 10, 0), true, 0, -1);
 		}
 	}
 
