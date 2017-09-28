@@ -39,16 +39,16 @@ namespace Rectangles
 		// Иначе вернуть -1
 		public static int IndexOfInnerRectangle(Rectangle r1, Rectangle r2)
 		{
-            if (AreIntersected(r1, r2))
+            if (r1.Left >= r2.Left && r1.Right <= r2.Right)
             {
-                var squareR1 = r1.Height * r1.Width;
-                var squareR2 = r2.Height * r2.Width;
-                var fullIntersectionSquare = IntersectionSquare(r1, r2);
-                if (squareR1 == fullIntersectionSquare)
+                if (r1.Top >= r2.Top && r1.Bottom <= r2.Bottom)
                 {
                     return 0;
                 }
-                else if (squareR2 == fullIntersectionSquare)
+            }
+            if (r2.Left >= r1.Left && r2.Right <= r1.Right)
+            {
+                if (r2.Top >= r1.Top && r2.Bottom <= r1.Bottom)
                 {
                     return 1;
                 }
